@@ -1,4 +1,4 @@
-// with className
+
 
 import { View, Text, ScrollView } from 'react-native'
 import React from 'react'

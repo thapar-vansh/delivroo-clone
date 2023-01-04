@@ -1,7 +1,8 @@
 import { View, Text, Image, TextInput, ScrollView } from 'react-native'
 import { SafeAreaView } from 'react-native-safe-area-context'
-import React, { useLayoutEffect } from 'react'
+import React, { useEffect, useLayoutEffect, useState } from 'react'
 import { useNavigation } from '@react-navigation/native'
+// import client from '../sanity'
 
 import {
   UserIcon,
@@ -14,12 +15,32 @@ import FeaturedRow from '../components/FeaturedRow'
 
 const HomeScreen = () => {
   const navigation = useNavigation()
+  const [featuredCategories, setFeaturedCategories] = useState([])
   useLayoutEffect(() => {
     navigation.setOptions({
       headerShown: false,
     })
   }, [])
 
+  // useEffect(() => {
+  //   client
+  //     .fetch(
+  //       `*[_type == 'featured' ]{
+  //         ...,
+  //         restaurents[]->{
+  //           ...,
+  //           dishes[]->
+  //         }
+  //       }`
+  //     )
+  //     .then((data) => {
+  //       setFeaturedCategories(data)
+  //     })
+  //     .catch((error) => {
+  //       console.error(error)
+  //     })
+  // }, [])
+  // console.log(featuredCategories)
   return (
     <SafeAreaView className="bg-white pt-5">
       {/*header*/}
